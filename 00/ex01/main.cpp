@@ -1,31 +1,30 @@
+#include "head.hpp"
+#include "PhoneBook.hpp"
 
-#ifndef CONTACT_H
-#define CONTACT_H
+int main() {
+    PhoneBook phonebook;
+    std::string cmd;
 
-#include "repertory.hpp"
+    while (true) {
+		system("clear");
+        std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 
-class	Contact {
-	public:
-		Contact();
-		~Contact();
-
-		void	setName(str name);
-		void	setLast(str last);
-		void	setNick(str nick);
-		void	setPhone(str phone);
-		void	setSecret(str secret);
-		str		getName() const;
-		str		getLast() const;
-		str		getNick() const;
-		str		getPhone() const;
-		str		getSecret() const;
-
-	private:
-		str	name;
-		str	last;
-		str	nick;
-		str	phone;
-		str	secret;
-};
-
-#endif
+        if (!std::getline(std::cin, cmd))
+		{
+			system("clear");
+            std::cout << "PROGRAMM EXITED" << std::endl;
+            break;
+		}
+        if (cmd == "ADD")
+            phonebook.add_contact();
+        else if (cmd == "SEARCH")
+            phonebook.search_contact();
+        else if (cmd == "EXIT")
+        {
+			system("clear");
+            std::cout << "PROGRAMM EXITED" << std::endl;
+            break;
+		}
+    }
+    return 0;
+}

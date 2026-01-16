@@ -38,18 +38,21 @@ int		Fixed::getRawBits() const {
 }
 
 void	Fixed::setRawBits(int const raw) {
+	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
 float	Fixed::toFloat() const {
+	// std::cout << "toFloat member function called" << std::endl;
 	return (float)this->value / (float)(1 << bits);
 }
 
 int		Fixed::toInt() const {
+	// std::cout << "toInt member function called" << std::endl;
 	return this->value >> bits;
 }
 
-std::ostream&	operator<<(std::ostream& o, Fixed const &other) {
-	o << other.toFloat();
-	return o;
+std::ostream&	operator<<(std::ostream& os, Fixed const &other) {
+	os << other.toFloat();
+	return os;
 }

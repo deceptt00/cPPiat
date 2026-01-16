@@ -6,7 +6,7 @@ WrongAnimal::WrongAnimal() : type("")
      std::cout << "Default WrongAnimal constructor called\n";
 }
 
-WrongAnimal::WrongAnimal(std::string t = "undefined") : type(t)
+WrongAnimal::WrongAnimal(std::string t) : type(t)
 {
      std::cout << "WrongAnimal constructor called\n";
 }

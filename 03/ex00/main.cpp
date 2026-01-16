@@ -5,14 +5,13 @@
 // 	ClapTrap	Clapy("Clapy");
 // 	ClapTrap	Trapy("Trapy");
 
-// 	Clapy.attack("Roméo");
+// 	Clapy.attack("ali");
 // 	Trapy.takeDamage(Clapy.getAttackDamage());
 // 	Trapy.beRepaired(2);
 
 // 	return 0;
 // }
 
-// #include "ClapTrap.hpp"
 
 // int main()
 // {
@@ -26,26 +25,25 @@
 //     a.beRepaired(3);
 // }
 
-// #include "ClapTrap.hpp"
 
 // int main()
 // {
-//     ClapTrap c("NoEnergy");
+//     ClapTrap c("Clapy");
 
+//     c.setAttackDamage(5);
 //     for (int i = 0; i < 15; i++)
 //         c.attack("wall");
 
-//     c.beRepaired(10); // should NOT work after energy = 0
+//     c.beRepaired(10);
 // }
 
-// #include "ClapTrap.hpp"
 
 int main()
 {
-    ClapTrap d("Dead");
+    ClapTrap d("clapy");
 
     d.takeDamage(5);
-    d.takeDamage(10); // should die
-    d.attack("someone"); // must NOT attack
-    d.beRepaired(10); // must NOT repair
+    d.takeDamage(10); 
+    d.attack("someone");
+    d.beRepaired(10); 
 }

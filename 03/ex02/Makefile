@@ -1,18 +1,22 @@
-SRC= $(wildcard *.cpp)
-NAME= fragtrap
-OBJ= $(SRC:.cpp=.o)
+CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
+NAME = FragTrap
+OBJ = $(SRC:.cpp=.o)
 
-all: $(NAME)
 
-$(NAME): $(OBJ)
-	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+all : $(NAME)
 
-clean:
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean :
 	rm -rf $(OBJ)
 
-fclean: clean
+fclean : clean
 	rm -rf $(NAME)
 
-re: fclean all
-
-.PHONY: all clean fclean re
+re : fclean all

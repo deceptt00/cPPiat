@@ -2,22 +2,34 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-int	main() {
-	ClapTrap	Clapy("Clapy");
-	ClapTrap	*Trapy = new ClapTrap("Roméo");
-	ScavTrap	Cyril("Cyril");
 
-	Clapy.attack("Cyril");
-	Cyril.takeDamage(Clapy.getAttackDamage());
-	Cyril.beRepaired(18);
-	Cyril.guardGate();
-	Cyril.attack("Trapy");
-	Trapy->takeDamage(Cyril.getAttackDamage());
-	delete Trapy;
-	return 0;
+int main()
+{
+    ClapTrap a;
+    // ScavTrap b;
+
+    std::cout << a.getEnergyPoints();
+    return 0;
 }
 
-// #include "ScavTrap.hpp"
+// int	main() {
+// 	// ClapTrap	Clapy("Clapy");
+// 	// ClapTrap	*Trapy = new ClapTrap("trappy");
+// 	ScavTrap	Scavy("Scavy");
+
+//     Scavy.setName("ali");
+//     ScavTrap    trapy(Scavy);
+//     trapy.setName("ho");
+// 	// Clapy.attack("Scavy");
+// 	// Scavy.takeDamage(Clapy.getAttackDamage());
+// 	// Scavy.beRepaired(18);
+// 	// Scavy.guardGate();
+// 	// Scavy.attack("Trapy");
+// 	// Trapy->takeDamage(Scavy.getAttackDamage());
+// 	// delete Trapy;
+// 	return 0;
+// }
+
 
 // int main()
 // {
@@ -29,7 +41,6 @@ int	main() {
 //     s.guardGate();
 // }
 
-// #include "ScavTrap.hpp"
 
 // int main()
 // {
@@ -39,7 +50,6 @@ int	main() {
 //     delete ptr;              // must NOT leak (destructor virtual?)
 // }
 
-// #include "ScavTrap.hpp"
 
 // int main()
 // {

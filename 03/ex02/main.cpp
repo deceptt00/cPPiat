@@ -5,7 +5,7 @@
 
 int	main() {
 	ClapTrap	Calpy("Calpy");
-	ClapTrap	*trapy = new ClapTrap("Roméo");
+	ClapTrap	*trapy = new ClapTrap("trapy");
 	ScavTrap	Scavy("Scavy");
 	FragTrap	Fragy("Fragy");
 
@@ -22,20 +22,7 @@ int	main() {
 	return 0;
 }
 
-// #include "FragTrap.hpp"
 
-// int main()
-// {
-//     FragTrap f("Fraggy");
-
-//     f.attack("enemy");
-//     f.takeDamage(40);
-//     f.beRepaired(20);
-//     f.highFivesGuys();
-// }
-
-
-// #include "FragTrap.hpp"
 
 // int main()
 // {
@@ -47,7 +34,6 @@ int	main() {
 //     f.highFivesGuys(); // must NOT work if energy = 0
 // }
 
-// #include "FragTrap.hpp"
 
 // int main()
 // {

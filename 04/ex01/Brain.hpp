@@ -11,6 +11,8 @@ class Brain{
         Brain(const Brain& cpy);
         ~Brain();
         Brain &operator=(const Brain& cpy);
+        void setbrainidea(const std::string str);
+        void getbrainidea();
 };
 
 #endif

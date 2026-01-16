@@ -5,18 +5,17 @@
 #include <string>
 #include <iostream>
 
-typedef std::string str;
 
 class Weapon {
 	public:
 		Weapon();
-		Weapon(str type);
+		Weapon(std::string  type);
 		~Weapon();
 
-		const str	&getType() const;
-		void		setType(str ntype);
+		const std::string 	getType() const;
+		void		setType(std::string  ntype);
 	private:
-		str	type;
+		std::string 	type;
 };
 
 #endif

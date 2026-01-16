@@ -23,6 +23,6 @@ class Fixed {
 		static const int	bits = 8;
 };
 
-std::ostream&	operator<<(std::ostream& o, Fixed const &other);
+std::ostream&	operator<<(std::ostream& os, Fixed const &other);
 
 #endif

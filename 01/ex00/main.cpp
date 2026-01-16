@@ -2,9 +2,9 @@
 #include "Zombie.hpp"
 
 int	main() {
-	Zombie	*z = NULL;
+	Zombie	*z = newZombie("ZOM");
 
-	z = z->newZombie("leM");
-	z->randomChump("leB");
+	z->announce();
+	randomChump("bie");
 	delete z;
 }

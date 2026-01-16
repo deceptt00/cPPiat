@@ -26,5 +26,6 @@ int		Fixed::getRawBits() const {
 }
 
 void	Fixed::setRawBits(int const raw) {
+	std::cout << "setRawbits member function called" << std::endl;
 	this->value = raw;
 }

@@ -11,10 +11,12 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
 	*this = src;
+	std::cout  << "ClapTrap " << name << " was copied" << std::endl;
+
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap " << this->name << " was destroy." << std::endl;
+	std::cout << "ClapTrap " << this->name << " was destroyed." << std::endl;
 }
 
 ClapTrap &	ClapTrap::operator=(ClapTrap const &rSym) {
@@ -40,13 +42,13 @@ std::string ClapTrap::getName() const{
 }
 
 void	ClapTrap::setHitPoints(int hitPoints) {
-	this->hitPoints = hitPoints;
+	this->hitPoints = abs(hitPoints);
 }
 void	ClapTrap::setEnergyPoints(int energyPoints) {
-	this->energyPoints = energyPoints;
+	this->energyPoints = abs(energyPoints);
 }
 void	ClapTrap::setAttackDamage(int attackDamage) {
-	this->attackDamage = attackDamage;
+	this->attackDamage = abs(attackDamage);
 }
 
 void	ClapTrap::setName(std::string name) {

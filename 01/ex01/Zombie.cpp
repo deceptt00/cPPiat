@@ -1,12 +1,10 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-	std::cout << "Be careful ! a new zombie is in the house !" << std::endl;
-}
+Zombie::Zombie() {}
 
 Zombie::~Zombie() {
-	std::cout << "A zombie died a second time." << std::endl;
+	std::cout << this->name << " died" << std::endl;
 }
 
 void	Zombie::announce() const {

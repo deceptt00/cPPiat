@@ -5,14 +5,13 @@
 #include <iostream>
 #include <string>
 
-typedef std::string str;
 
 class Harl {
 	public:
 		Harl();
 		~Harl();
 
-		void	complain(str level);
+		void	complain(std::string level);
 
 	private:
 		void	debug() const;

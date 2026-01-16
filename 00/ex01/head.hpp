@@ -1,6 +1,6 @@
 
-#ifndef HEAD_H
-#define HEAD_H
+#ifndef HEAD_HPP
+#define HEAD_HPP
 
 #include <iostream>
 #include <cctype>
@@ -10,9 +10,11 @@
 #include <iomanip>
 #include <cstdio>
 
-typedef std::string str;
+bool		printable(std::string str);
+bool		is_num(std::string str);
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+
 
 #endif

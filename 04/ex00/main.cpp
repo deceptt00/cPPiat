@@ -21,10 +21,10 @@ int main()
     // Animal *a = &d;
     // std::cout << a->getType() << " says ";
     // a->makeSound();
-    ////////////////////////////////////////////////////////
-    // WrongAnimal *wrong = new WrongCat();
-    // std::cout << wrong->getType() << " says ";
-    // wrong->makeSound();
-    // delete (wrong);
+    //////////////////////////////////////////////////////
+    WrongAnimal *wrong = new WrongCat();
+    std::cout << wrong->getType() << " says ";
+    wrong->makeSound();
+    delete (wrong);
     return 0;
 }

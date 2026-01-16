@@ -6,32 +6,30 @@
 
 typedef std::string str;
 
-void	getNewLine(str &line, str first, str second) {
-	size_t	startPos = 0;
+void	replace(std::string &line, std::string first, std::string second) {
+	size_t	pos = 0;
 
-	while ((startPos = line.find(first, startPos)) != str::npos) {
-		line = line.substr(0, startPos) + second + line.substr(startPos + first.length());
-		startPos += second.length();
+	while ((pos = line.find(first, pos)) != std::string::npos) {
+		line = line.substr(0, pos) + second + line.substr(pos + first.length());
+		pos += second.size();
 	}
 }
 
 int	main(int ac, char **av) {
 	if (ac != 4) {
-		std::cout << "Usage : ./replace file_in string1 string2"; return 0;
+		std::cout << "Usage : ./replace file string1 string2" << std::endl;
+		return 0;
 	}
-	
-	str				in_file = av[1];
-	str				first = av[2];
-	str				second = av[3];
-	str				line;
-	str				out_file = in_file + ".replace";
-
+	std::string		in_file = av[1];
+	std::string		first = av[2];
+	std::string		second = av[3];
+	std::string		line;
+	std::string		out_file = in_file + ".replace";
 	std::ifstream	input(in_file.c_str());
 	std::ofstream	output(out_file.c_str());
-	
 	if (input.is_open()) {
 		while (std::getline(input, line)) {
-			getNewLine(line, first, second);
+			replace(line, first, second);
 			output << line;
 			if (!input.eof())
 				output << std::endl;

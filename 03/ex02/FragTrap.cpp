@@ -2,6 +2,10 @@
 #include "FragTrap.hpp"
 
 
+FragTrap::FragTrap() : ClapTrap() {
+	std::cout << "FragTrap default constructor" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap() {
 	this->name = name;
 	this->hitPoints = 100;
@@ -32,5 +36,14 @@ FragTrap &	FragTrap::operator=(FragTrap const &rSym) {
 
 
 void	FragTrap::highFivesGuys() {
-	std::cout << "Fragtrap " << this->name << " asks : Who wants a high-five ?" << std::endl;
+		if (this->hitPoints <= 0) {
+		std::cout << "FragTrap " << this->name << " is dead" << std::endl;
+		return;
+	}
+	if (this->energyPoints > 0) {
+		std::cout << "Fragtrap " << this->name << " asks : Who wants a high-five ?" << std::endl;
+		this->energyPoints -= 1;
+	}
+	else
+		std::cout << "FragTrap " << this->name << " doesn't have enough energy points !" << std::endl;
 }

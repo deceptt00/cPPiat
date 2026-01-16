@@ -12,12 +12,13 @@ class Zombie {
 		Zombie(str name);
 		~Zombie();
 
-		Zombie* newZombie(str name);
-		void	randomChump(str name);
-	private:
 		void	announce();
+		
+	private:
 		str	name;
 };
 
+Zombie* newZombie(str name);
+void	randomChump(str name);
 
 #endif

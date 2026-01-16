@@ -6,7 +6,7 @@ Animal::Animal() : type("")
      std::cout << "Default Animal constructor called\n";
 }
 
-Animal::Animal(std::string t = "undefined") : type(t)
+Animal::Animal(std::string t) : type(t)
 {
      std::cout << "Animal constructor called\n";
 }

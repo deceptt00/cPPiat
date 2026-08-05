@@ -32,18 +32,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	if (!file.is_open())
 		throw std::runtime_error("ShrubberyCreationForm: could not open file " + filename);
 
-	file << "        .       ." << std::endl;
-	file << "       /|\\     /|\\" << std::endl;
-	file << "      / | \\   / | \\" << std::endl;
-	file << "     /  |  \\ /  |  \\" << std::endl;
-	file << "    /   |   X   |   \\" << std::endl;
-	file << "   /    | /| \\  |    \\" << std::endl;
-	file << "  /_____|/ |  \\_|_____\\" << std::endl;
-	file << "        |  |  |" << std::endl;
-	file << "        |  |  |" << std::endl;
-	file << "       /|  |  |\\" << std::endl;
-	file << "      / |  |  | \\" << std::endl;
-	file << "        |__|__|" << std::endl;
+	file << R"( &&& &&  & &&)" << std::endl;
+    file << R"(      && &\/&\|& ()|/ @, &&)" << std::endl;
+    file << R"(      &\/(/&/&||/& /_/)_&/_&)" << std::endl;
+    file << R"(   &() &\/&|()|/&\/ '%" & ())" << std::endl;
+    file << R"(  &_\_&&_\ |& |&&/&__%_/_& &&)" << std::endl;
+    file << R"(&&   && & &| &| /& & % ()& /&&)" << std::endl;
+    file << R"( ()&_---()&\&\|&&-&&--%---()~)" << std::endl;
+    file << R"(     &&     \|||)" << std::endl;
+    file << R"(             |||)" << std::endl;
+    file << R"(             |||)" << std::endl;
+    file << R"(             |||)" << std::endl;
+    file << R"(       , -=-~  .-^- )" << std::endl;
 	file.close();
 	std::cout << "ShrubberyCreationForm: created file '" << filename << "'" << std::endl;
 }

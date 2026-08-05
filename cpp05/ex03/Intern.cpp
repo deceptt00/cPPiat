@@ -9,17 +9,17 @@ Intern::Intern(const Intern &) {}
 Intern &Intern::operator=(const Intern &) { return *this; }
 Intern::~Intern() {}
 
-AForm *Intern::makeShrubbery(const std::string &target)
+AForm *makeShrubbery(const std::string &target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-AForm *Intern::makeRobotomy(const std::string &target)
+AForm *makeRobotomy(const std::string &target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-AForm *Intern::makePardon(const std::string &target)
+AForm *makePardon(const std::string &target)
 {
 	return new PresidentialPardonForm(target);
 }
@@ -31,23 +31,23 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 		"robotomy request",
 		"presidential pardon"
 	};
-	static const FormFactory factories[3] = {
-		&Intern::makeShrubbery,
-		&Intern::makeRobotomy,
-		&Intern::makePardon
-	};
+	AForm* (*forms[3])(const std::string&) = {
+        &makeShrubbery,
+        &makeRobotomy,
+        &makePardon
+    };
 
 	for (int i = 0; i < 3; ++i) {
 		if (formName == names[i]) {
-			AForm *form = factories[i](target);
+			AForm *form = forms[i](target);
 			std::cout << "Intern creates " << form->getName() << std::endl;
 			return form;
 		}
 	}
-	throw UnknownFormException();
+	throw FormNotFound();
 }
 
-const char *Intern::UnknownFormException::what() const throw()
+const char *Intern::FormNotFound::what() const throw()
 {
 	return "Intern: unknown form name";
 }

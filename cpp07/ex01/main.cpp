@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-// ─── Example functions to pass to iter ───────────────────────────────────────
 
 template <typename T>
 void printElement(T const &x)
@@ -21,8 +20,6 @@ void toUpper(char &c)
 	if (c >= 'a' && c <= 'z')
 		c = static_cast<char>(c - 32);
 }
-
-// ─── main ─────────────────────────────────────────────────────────────────────
 
 int main(void)
 {

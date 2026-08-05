@@ -1,7 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
-// sign 25, exec 5
 PresidentialPardonForm::PresidentialPardonForm()
 	: AForm("PresidentialPardonForm", 25, 5), _target("default") {}
 

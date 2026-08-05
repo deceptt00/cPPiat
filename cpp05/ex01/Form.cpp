@@ -27,14 +27,10 @@ Form &Form::operator=(const Form &src)
 
 Form::~Form() {}
 
-// ─── Getters ─────────────────────────────────────────────────────────────────
-
-const std::string &Form::getName()          const { return _name; }
+const std::string  Form::getName()          const { return _name; }
 bool               Form::isSigned()         const { return _signed; }
 int                Form::getGradeToSign()   const { return _gradeToSign; }
 int                Form::getGradeToExecute()const { return _gradeToExecute; }
-
-// ─── beSigned ────────────────────────────────────────────────────────────────
 
 void Form::beSigned(const Bureaucrat &b)
 {
@@ -42,8 +38,6 @@ void Form::beSigned(const Bureaucrat &b)
 		throw GradeTooLowException();
 	_signed = true;
 }
-
-// ─── Exceptions ──────────────────────────────────────────────────────────────
 
 const char *Form::GradeTooHighException::what() const throw()
 {
@@ -54,8 +48,6 @@ const char *Form::GradeTooLowException::what() const throw()
 {
 	return "Form: grade is too low, cannot sign";
 }
-
-// ─── Operator << ─────────────────────────────────────────────────────────────
 
 std::ostream &operator<<(std::ostream &out, const Form &f)
 {

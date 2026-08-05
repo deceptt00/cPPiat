@@ -19,10 +19,8 @@ class Intern
 		};
 
 	private:
-		// Function pointer type for form factories
 		typedef AForm *(*FormFactory)(const std::string &target);
 
-		// Static factory functions, one per concrete form
 		static AForm *makeShrubbery(const std::string &target);
 		static AForm *makeRobotomy(const std::string &target);
 		static AForm *makePardon(const std::string &target);

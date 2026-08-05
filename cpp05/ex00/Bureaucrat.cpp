@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 
-// ─── Orthodox Canonical Form ─────────────────────────────────────────────────
-
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade)
@@ -25,12 +23,9 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 
 Bureaucrat::~Bureaucrat() {}
 
-// ─── Getters ─────────────────────────────────────────────────────────────────
-
 const std::string &Bureaucrat::getName() const { return _name; }
 int                Bureaucrat::getGrade() const { return _grade; }
 
-// ─── Grade modifiers ─────────────────────────────────────────────────────────
 
 void Bureaucrat::incrementGrade()
 {
@@ -46,8 +41,6 @@ void Bureaucrat::decrementGrade()
 	++_grade;
 }
 
-// ─── Exceptions ──────────────────────────────────────────────────────────────
-
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Bureaucrat grade is too high (min is 1)";
@@ -57,8 +50,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Bureaucrat grade is too low (max is 150)";
 }
-
-// ─── Operator << ─────────────────────────────────────────────────────────────
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {

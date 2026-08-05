@@ -27,14 +27,10 @@ AForm &AForm::operator=(const AForm &src)
 
 AForm::~AForm() {}
 
-// ─── Getters ─────────────────────────────────────────────────────────────────
-
 const std::string &AForm::getName()           const { return _name; }
 bool               AForm::isSigned()          const { return _signed; }
 int                AForm::getGradeToSign()    const { return _gradeToSign; }
 int                AForm::getGradeToExecute() const { return _gradeToExecute; }
-
-// ─── beSigned ────────────────────────────────────────────────────────────────
 
 void AForm::beSigned(const Bureaucrat &b)
 {
@@ -43,8 +39,6 @@ void AForm::beSigned(const Bureaucrat &b)
 	_signed = true;
 }
 
-// ─── checkExecution ──────────────────────────────────────────────────────────
-
 void AForm::checkExecution(const Bureaucrat &executor) const
 {
 	if (!_signed)
@@ -52,8 +46,6 @@ void AForm::checkExecution(const Bureaucrat &executor) const
 	if (executor.getGrade() > _gradeToExecute)
 		throw GradeTooLowException();
 }
-
-// ─── Exceptions ──────────────────────────────────────────────────────────────
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
@@ -69,8 +61,6 @@ const char *AForm::FormNotSignedException::what() const throw()
 {
 	return "AForm: form is not signed";
 }
-
-// ─── Operator << ─────────────────────────────────────────────────────────────
 
 std::ostream &operator<<(std::ostream &out, const AForm &f)
 {

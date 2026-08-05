@@ -3,7 +3,6 @@
 #include <fstream>
 #include <stdexcept>
 
-// sign 145, exec 137
 ShrubberyCreationForm::ShrubberyCreationForm()
 	: AForm("ShrubberyCreationForm", 145, 137), _target("default") {}
 

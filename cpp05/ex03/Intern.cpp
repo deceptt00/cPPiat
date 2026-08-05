@@ -9,8 +9,6 @@ Intern::Intern(const Intern &) {}
 Intern &Intern::operator=(const Intern &) { return *this; }
 Intern::~Intern() {}
 
-// ─── Static factories ─────────────────────────────────────────────────────────
-
 AForm *Intern::makeShrubbery(const std::string &target)
 {
 	return new ShrubberyCreationForm(target);
@@ -26,11 +24,8 @@ AForm *Intern::makePardon(const std::string &target)
 	return new PresidentialPardonForm(target);
 }
 
-// ─── makeForm — function pointer dispatch table ───────────────────────────────
-
 AForm *Intern::makeForm(const std::string &formName, const std::string &target) const
 {
-	// Table of form names and their factory functions — no if/else chain
 	static const std::string names[3] = {
 		"shrubbery creation",
 		"robotomy request",
@@ -51,8 +46,6 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 	}
 	throw UnknownFormException();
 }
-
-// ─── Exception ───────────────────────────────────────────────────────────────
 
 const char *Intern::UnknownFormException::what() const throw()
 {

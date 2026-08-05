@@ -16,19 +16,15 @@ class AForm
 		AForm &operator=(const AForm &src);
 		virtual ~AForm();
 
-		// Getters
 		const std::string	&getName()            const;
 		bool				isSigned()            const;
 		int					getGradeToSign()      const;
 		int					getGradeToExecute()   const;
 
-		// Sign
 		void beSigned(const Bureaucrat &b);
 
-		// Execute — pure virtual: each concrete form defines its action
 		virtual void execute(Bureaucrat const &executor) const = 0;
 
-		// Nested exceptions
 		class GradeTooHighException : public std::exception {
 			public: virtual const char *what() const throw();
 		};
@@ -40,7 +36,6 @@ class AForm
 		};
 
 	protected:
-		// Helper for concrete classes: checks signed + grade before acting
 		void checkExecution(Bureaucrat const &executor) const;
 
 	private:

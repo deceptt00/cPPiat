@@ -5,7 +5,7 @@
 # include <iostream>
 # include <stdexcept>
 
-class Bureaucrat;  // forward declaration
+class Bureaucrat;
 
 class Form
 {
@@ -16,16 +16,13 @@ class Form
 		Form &operator=(const Form &src);
 		~Form();
 
-		// Getters
-		const std::string	&getName()           const;
+		const std::string	getName()           const;
 		bool				isSigned()           const;
 		int					getGradeToSign()     const;
 		int					getGradeToExecute()  const;
 
-		// Actions
 		void beSigned(const Bureaucrat &b);
 
-		// Nested exceptions
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();

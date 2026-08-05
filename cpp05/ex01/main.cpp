@@ -11,16 +11,17 @@ int main(void)
 
 		Bureaucrat lowRank("Intern", 100);
 		Bureaucrat highRank("Director", 10);
+		std::cout << highRank.getName() << std::endl;
 
 		std::cout << lowRank << std::endl;
 		std::cout << highRank << std::endl;
 
 		std::cout << "\n--- Low rank tries to sign ---" << std::endl;
-		lowRank.signForm(f);    // fails: grade 100 > required 50
+		lowRank.signForm(f);
 		std::cout << f << std::endl;
 
 		std::cout << "\n--- High rank signs ---" << std::endl;
-		highRank.signForm(f);   // succeeds: grade 10 <= required 50
+		highRank.signForm(f); 
 		std::cout << f << std::endl;
 
 		std::cout << "\n--- Already signed, sign again ---" << std::endl;

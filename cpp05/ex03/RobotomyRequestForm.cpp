@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <ctime>
 
-// sign 72, exec 45
 RobotomyRequestForm::RobotomyRequestForm()
 	: AForm("RobotomyRequestForm", 72, 45), _target("default") {}
 

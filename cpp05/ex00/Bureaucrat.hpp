@@ -8,22 +8,18 @@
 class Bureaucrat
 {
 	public:
-		// Orthodox Canonical Form
 		Bureaucrat();
 		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(const Bureaucrat &src);
 		Bureaucrat &operator=(const Bureaucrat &src);
 		~Bureaucrat();
 
-		// Getters
 		const std::string	&getName() const;
 		int					getGrade() const;
 
-		// Grade modifiers
-		void	incrementGrade();  // grade-- (numerically lower = higher rank)
-		void	decrementGrade();  // grade++ (numerically higher = lower rank)
+		void	incrementGrade(); 
+		void	decrementGrade(); 
 
-		// Nested exception classes
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();

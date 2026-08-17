@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <ctime>
 
-// ─── generate ───────────────────────────────────────────────────────────────
 
 Base *generate(void)
 {
@@ -14,8 +13,6 @@ Base *generate(void)
 	return new C;
 }
 
-// ─── identify (pointer) ─────────────────────────────────────────────────────
-// dynamic_cast to pointer returns NULL on failure — no exception
 
 void identify(Base *p)
 {
@@ -29,8 +26,6 @@ void identify(Base *p)
 		std::cout << "unknown" << std::endl;
 }
 
-// ─── identify (reference) ───────────────────────────────────────────────────
-// dynamic_cast to reference throws std::bad_cast on failure
 
 void identify(Base &p)
 {
@@ -51,8 +46,6 @@ void identify(Base &p)
 	} catch (...) {}
 	std::cout << "unknown" << std::endl;
 }
-
-// ─── main ───────────────────────────────────────────────────────────────────
 
 int main(void)
 {

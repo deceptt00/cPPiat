@@ -35,11 +35,11 @@ class AForm
 			public: virtual const char *what() const throw();
 		};
 
+		const std::string	_name;
 	protected:
 		void checkExecution(Bureaucrat const &executor) const;
 
 	private:
-		const std::string	_name;
 		bool				_signed;
 		const int			_gradeToSign;
 		const int			_gradeToExecute;

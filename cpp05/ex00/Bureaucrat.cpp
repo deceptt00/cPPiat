@@ -21,7 +21,10 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() 
+{
+	std::cout << _name << "destructed" << std::endl;
+}
 
 const std::string &Bureaucrat::getName() const { return _name; }
 int                Bureaucrat::getGrade() const { return _grade; }
@@ -37,7 +40,7 @@ void Bureaucrat::incrementGrade()
 void Bureaucrat::decrementGrade()
 {
 	if (_grade + 1 > 150)
-		throw GradeTooLowException();
+		throw 101;
 	++_grade;
 }
 

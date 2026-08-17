@@ -13,9 +13,6 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter &other)
 }
 ScalarConverter::~ScalarConverter(){}
 
-/*
-** ---- detection helpers (yours, unchanged) ----
-*/
 
 bool    is_int(std::string literal)
 {
@@ -53,14 +50,6 @@ bool    is_double(std::string literal)
         return (true);
     return false;
 }
-
-/*
-** ---- output helpers ----
-** Everything downstream only ever sees a single canonical `double value`
-** plus a `special` flag for the nan/inf pseudo-literals (which have no
-** char/int representation). This keeps convert() itself free of
-** duplicated cast/format logic per type.
-*/
 
 void ScalarConverter::printChar(double value, bool special)
 {
@@ -113,14 +102,11 @@ void ScalarConverter::printDouble(double value, bool special)
         return;
     }
     std::cout << value;
-    if (value == static_cast<long long>(value) && std::fabs(value) < 1e17)
+    if ( std::fabs(value) < 1e17 && value == static_cast<long long>(value))
         std::cout << ".0";
     std::cout << std::endl;
 }
 
-/*
-** ---- entry point ----
-*/
 
 void ScalarConverter::convert(const std::string &literal)
 {

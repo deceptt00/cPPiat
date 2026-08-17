@@ -1,5 +1,5 @@
 #include "ScalarConverter.hpp"
-#include <errno.h>
+
 
 ScalarConverter::ScalarConverter(){}
 ScalarConverter::ScalarConverter(const ScalarConverter &cpy)
@@ -87,10 +87,13 @@ void ScalarConverter::printFloat(double value, bool special)
         return;
     }
     float f = static_cast<float>(value);
-    std::cout << f;
-    if (f == static_cast<long long>(f) && std::fabs(f) < 1e17)
-        std::cout << ".0";
-    std::cout << "f" << std::endl;
+    std::ostringstream oss;
+    oss << f;
+    std::string s = oss.str();
+    if (s.find('.') == std::string::npos &&
+        s.find('e') == std::string::npos)
+        s += ".0";
+    std::cout << s << "f" << std::endl;
 }
 
 void ScalarConverter::printDouble(double value, bool special)
@@ -101,11 +104,15 @@ void ScalarConverter::printDouble(double value, bool special)
         std::cout << value << std::endl;
         return;
     }
-    std::cout << value;
-    if ( std::fabs(value) < 1e17 && value == static_cast<long long>(value))
-        std::cout << ".0";
-    std::cout << std::endl;
+    std::ostringstream oss;
+    oss << value;
+    std::string s = oss.str();
+    if (s.find('.') == std::string::npos &&
+        s.find('e') == std::string::npos)
+        s += ".0";
+    std::cout << value << std::endl;
 }
+
 
 
 void ScalarConverter::convert(const std::string &literal)

@@ -4,7 +4,7 @@
 
 
 template <typename T>
-void printElement(T const &x)
+void printElement(T &x)
 {
 	std::cout << x << " ";
 }

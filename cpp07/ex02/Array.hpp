@@ -2,7 +2,7 @@
 # define ARRAY_HPP
 
 # include <stdexcept>
-# include <cstddef>  // size_t
+# include <cstddef>
 
 
 template <typename T>

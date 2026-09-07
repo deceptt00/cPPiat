@@ -24,7 +24,7 @@ int main()
     for (int i =0;i < 12;i++)
         l.push_back(i*2);
     try{
-        std::list<int>::iterator l_it = easyfind(l, 34);
+        std::list<int>::iterator l_it = easyfind(l, 8);
         std::cout << "Element found :" << *l_it <<std::endl;        
     }
     catch (std::exception &e)

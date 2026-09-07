@@ -8,6 +8,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sys/time.h>
+#include <iterator>
 
 template <typename T>
 class PmergeMe
@@ -43,5 +44,5 @@ class PmergeMe
 int	jacobsthal(int n)
 {
 	//jacobsthal sequence: 0, 1, 1, 3, 5, 11, 21, 43, 85, 171, ...
-	 return round((pow(2, n + 1) + pow(-1, n)) / 3);
+	return round((pow(2, n + 1) + pow(-1, n)) / 3);
 } 

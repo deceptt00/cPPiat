@@ -25,3 +25,42 @@ int main()
     std::stack<int> s(mstack);
     return 0;
 }
+
+#include <list>
+
+// int main()
+// {
+//     std::list<int> mlist;
+    
+//     mlist.push_back(5);
+//     mlist.push_back(17);
+    
+//     std::cout << mlist.back() << std::endl; // Replaces top()
+    
+//     mlist.pop_back(); // Replaces pop()
+    
+//     std::cout << mlist.size() << std::endl;
+    
+//     mlist.push_back(3);
+//     mlist.push_back(5);
+//     mlist.push_back(737);
+//     //[...]
+//     mlist.push_back(0);
+    
+//     std::list<int>::iterator it = mlist.begin();
+//     std::list<int>::iterator ite = mlist.end();
+    
+//     ++it;
+//     --it;
+    
+//     while (it != ite)
+//     {
+//         std::cout << *it << std::endl;
+//         ++it;
+//     }
+    
+//     // To copy the list into a stack, you must specify std::list as the underlying container
+//     std::stack<int, std::list<int> > s(mlist); 
+    
+//     return 0;
+// }

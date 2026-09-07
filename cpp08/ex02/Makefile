@@ -1,27 +1,22 @@
-CXX = c++
-CPPFLAGS = -Wall -Wextra -std=c++98 -g -Werror
-SRC = main.cpp
-DEP = MutantStack.hpp MutantStack.tpp
-OBJ = $(SRC:.cpp=.o)
-NAME = main
+NAME		= mutant
 
-all : $(NAME)
+CXX		= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp $(DEP)
-	$(CXX) -c $(CPPFLAGS) $< -o $@
+SRCS		= main.cpp
+OBJS		= $(SRCS:.cpp=.o)
 
-$(NAME): $(OBJ) 
-	$(CXX) $^ -o $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY:
-	all clean fclean re
-
-.SECONDARY:$(OBJ)
+.PHONY: all clean fclean re

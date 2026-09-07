@@ -19,10 +19,10 @@ class Span
 
         unsigned int getMax()const;
         unsigned int getSize()const;
-        int getNumAtIdx(unsigned int idx)const;
+        int getNumAtIdx(unsigned int idx) const;
         void addNumber(int n);
-        unsigned int shortestSpan()const;
-        unsigned int longestSpan()const;
+        unsigned int shortestSpan() const;
+        unsigned int longestSpan() const;
         template <typename I>
         void    addNumbers(I begin, I end);
 };
@@ -31,7 +31,7 @@ template <typename I>
 void Span::addNumbers(I begin, I end)
 {
     if (numbers.size() + std::distance(begin, end) > max)
-        throw std::out_of_range("Adding these elements would exceed Span capacity");
+        throw std::runtime_error("Adding these elements would exceed Span capacity");
     numbers.insert(numbers.end(), begin, end);
     size = numbers.size();
 }

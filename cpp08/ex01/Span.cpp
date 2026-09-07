@@ -27,15 +27,15 @@ Span &Span::operator=(const Span &other)
 Span::~Span()
 {}
 
-unsigned int Span::getMax()const{
+unsigned int Span::getMax() const{
     return max;
 }
 
-unsigned int Span::getSize()const{
+unsigned int Span::getSize() const{
     return numbers.size();
 }
 
-int Span::getNumAtIdx(unsigned int idx)const{
+int Span::getNumAtIdx(unsigned int idx) const{
     return numbers.at(idx);
 }
 
@@ -48,15 +48,15 @@ void    Span::addNumber(int val)
 }
 
 
-unsigned int Span::shortestSpan()const
+unsigned int Span::shortestSpan() const
 {
     if (numbers.size() < 2)
-        throw std::out_of_range("No span can be found!Not enough elements");
+        throw std::runtime_error("Elements are not enough to search for span");
     std::vector<int> tmp = numbers;
     
     std::sort(tmp.begin(), tmp.end());
     unsigned int shortest = tmp[1] - tmp[0];
-    for (unsigned int i = 1; i < size - 1;++i)
+    for (unsigned int i = 1; i < size - 1; ++i)
     {
         unsigned int span = static_cast<unsigned int>(tmp[i + 1]) - static_cast<unsigned int>(tmp[i]);
         if (span < shortest)
@@ -68,7 +68,7 @@ unsigned int Span::shortestSpan()const
 unsigned int Span::longestSpan()const
 {
     if (numbers.size() < 2)
-        throw std::out_of_range("No span can be found!Not enough elements");
+        throw std::runtime_error("Elements are not enough to search for span");
    int max_el = *std::max_element(numbers.begin(), numbers.end());
    int min_el = *std::min_element(numbers.begin(), numbers.end());
 

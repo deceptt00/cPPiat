@@ -5,4 +5,20 @@
 #include <ctype.h>
 #include <cstdlib>
 
-void    processRpn(std::string exp);
+
+class RPN
+{
+    public:
+        RPN(){}
+        RPN(std::string exp);
+        RPN(const RPN &other);
+        RPN& operator= (const RPN &other);
+        ~RPN() {};
+        long get_result() {return result;}
+
+    private:
+        std::stack<long>   numStack;
+        long result;
+
+    
+};

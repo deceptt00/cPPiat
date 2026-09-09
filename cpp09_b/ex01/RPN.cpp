@@ -7,12 +7,11 @@ bool is_operand (char t)
     return false;
 }
 
-void    processRpn(std::string exp)
+RPN::RPN(std::string exp)
 {
     if (exp.empty())
         throw std::runtime_error("Error");
 
-    std::stack<float>   numStack;
     std::stringstream   ss_exp(exp);
     std::string         tokenStr;
     char                token;
@@ -24,7 +23,7 @@ void    processRpn(std::string exp)
             throw std::runtime_error("Error");
         token = tokenStr[0];
         if (std::isdigit(token))
-            numStack.push(static_cast<float>(token - '0'));
+            numStack.push(static_cast<long>(token - '0'));
         else if (is_operand(token))
         {
             if (numStack.size() < 2)
@@ -34,13 +33,13 @@ void    processRpn(std::string exp)
             switch (token)
             {
                 case '+':
-                    num += numStack.top();
+                    num = numStack.top() + num;
                     break;
                 case '-':
                     num = numStack.top() - num;
                     break ;
                 case '*':
-                    num *= numStack.top();
+                    num = numStack.top() * num;
                     break ;
                 case '/':
                     if (num != 0)
@@ -59,5 +58,18 @@ void    processRpn(std::string exp)
     }
     if (numStack.size() != 1)
         throw std::runtime_error("Error");
-    std::cout << numStack.top() << std::endl;
+    result = numStack.top();
 }
+
+RPN::RPN(const RPN &other) : numStack(other.numStack), result(other.result) {}
+
+RPN &RPN::operator=(const RPN &other)
+{
+    if (this != &other)
+    {
+        numStack = other.numStack;
+        result = other.result;
+    }
+    return *this;
+}
+

@@ -60,10 +60,11 @@ float   BitcoinExchange::getValForDate(std::string &date)
 {
     std::map<std::string, float>::iterator it;
 
-    it = btcData.upper_bound( date);
+    it = btcData.upper_bound(date);
     if (it == btcData.begin())
         throw std::runtime_error("bad input => " + date);
     it--;
+    date = it->first;
     return it->second;
 }
 

@@ -9,7 +9,8 @@ int main(int ac, char **av)
     }
     try
     {
-        processRpn(std::string(av[1]));
+        RPN calcul(av[1]);
+        std::cout << calcul.get_result() << std::endl;
     }
     catch (std::exception &e)
     {
